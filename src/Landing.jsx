@@ -1,4 +1,4 @@
-function Landing({ charType, onSelect }) {
+function Landing({ isHero, onSelect }) {
   return (
     <>
       <header>
@@ -9,23 +9,23 @@ function Landing({ charType, onSelect }) {
           <p>Are you a hero or a villian?</p>
           <label htmlFor="hero-character">
             <input
-              onChange={(e) => onSelect(e.target.value)}
+              onChange={() => onSelect(true)}
               type="radio"
-              value="1"
+              value={isHero}
               name="char-type"
               id="hero-character"
-              checked={charType === "1"}
+              checked={isHero === true}
             />
             Hero
           </label>
           <label htmlFor="villain-character">
             <input
-              onChange={(e) => onSelect(e.target.value)}
+              onChange={() => onSelect(false)}
               type="radio"
-              value="0"
+              value={!isHero}
               name="char-type"
               id="villain-character"
-              checked={charType === "0"}
+              checked={isHero === false}
             />
             Villain
           </label>

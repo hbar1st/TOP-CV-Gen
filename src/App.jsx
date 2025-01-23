@@ -3,26 +3,27 @@ import Landing from "./Landing.jsx";
 import { useState } from "react";
 
 function App() {
-  // 1 is the hero, 0 is the villain (zero!)
-  const [charChoice, setCharChoice] = useState("1");
+  const [isHero, setHero] = useState(true); //you're either a Hero or you're a zero!
+  const [splashToggle, setSplashToggle] = useState(true);
 
-  return (
-    <>
-      <form
-        onSubmit={(e) => triggerNextPage(e, charChoice)}
-        action=""
-        method="post"
-      >
-        <Landing charType={charChoice} onSelect={setCharChoice} />
-        <button type="submit">Submit</button>
-      </form>
-    </>
-  );
-}
-
-function triggerNextPage(e, charChoice) {
-  e.preventDefault();
-  console.log("triggerNextPage thinks user chose: ", charChoice);
+  if (splashToggle) {
+    return (
+      <>
+        <form
+          onSubmit={(e) => {
+            setSplashToggle(false);
+          }}
+          action=""
+          method="post"
+        >
+          <Landing isHero={isHero} onSelect={setHero} />
+          <button type="submit">Submit</button>
+        </form>
+      </>
+    );
+  } else {
+    return <>Trigger next page for the {isHero ? "Hero" : "Villain"}</>;
+  }
 }
 
 export default App;
