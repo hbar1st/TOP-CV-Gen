@@ -1,5 +1,6 @@
 import "./App.css";
 import Landing from "./Landing.jsx";
+import ResumeHeader from "./ResumeHeader.jsx";
 import { useState } from "react";
 
 function App() {
@@ -22,7 +23,11 @@ function App() {
       </>
     );
   } else {
-    return <>Trigger next page for the {isHero ? "Hero" : "Villain"}</>;
+    return (
+      <>
+        <ResumeHeader charType={isHero ? "Hero" : "Villain"} />
+      </>
+    );
   }
 }
 

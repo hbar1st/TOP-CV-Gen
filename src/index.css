@@ -1,17 +1,114 @@
+@font-face {
+  font-family: "foldit";
+  src: url("./assets/foldit-variablefont_wght-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "emblemaone";
+  src: url("./assets/emblemaone-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "arvo";
+  src: url("./assets/arvo-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  --superBlue: #3d58e3;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "arvo";
 }
 
 * {
-  padding: none;
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+fieldset.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  gap: 10px;
+  margin: 30px;
+
+  input[type="radio"] {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    transition: all 0.3s ease-out;
+  }
+
+  label:hover {
+    box-shadow: 1px 1px 1px 1px gray;
+  }
+
+  label:has(> input[type="radio"]:checked) {
+    font-weight: 600;
+    color: white;
+  }
+  label.hero:has(> input[type="radio"]:checked) {
+    background-color: var(--superBlue, blue);
+  }
+  label.villain:has(> input[type="radio"]:checked) {
+    background-color: black;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    max-width: 90vw;
+    gap: 10px;
+
+    label {
+      max-width: 50%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 5px;
+      background-color: #d6d1d1;
+    }
+    img {
+      width: 90%;
+      aspect-ratio: 0.86;
+    }
+  }
+}
+section.hero {
+  background-color: white;
+  color: black;
+}
+
+section.villain {
+  background-color: black;
+  color: white;
+}
+
+button[type="submit"] {
+  padding: 0.5rem 1rem;
+}
