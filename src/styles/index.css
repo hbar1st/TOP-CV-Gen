@@ -81,72 +81,19 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-fieldset.landing {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  gap: var(--space-xs);
-  margin: var(--space-s);
-
-  input[type="radio"] {
-    visibility: hidden;
-    height: 0;
-    width: 0;
-    transition: all 0.3s ease-out;
-  }
-
-  label {
-    font-weight: 700;
-    font-family: "emblemaone";
-  }
-  label:hover {
-    box-shadow: 1px 1px 1px 1px gray;
-  }
-
-  label:has(> input[type="radio"]:checked) {
-    font-weight: 600;
-    color: white;
-  }
-  label.hero:has(> input[type="radio"]:checked) {
-    background-color: var(--superBlue, blue);
-  }
-  label.villain:has(> input[type="radio"]:checked) {
-    /*background-color: rgb(65, 38, 84);*/
-    background-color: #3d3250;
-  }
-
-  div {
-    display: flex;
-    flex-direction: row;
-    max-width: 90vw;
-    gap: var(--space-xs);
-
-    label {
-      max-width: 50%;
-      padding: var(--space-xs);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid black;
-      border-radius: 5px;
-      background-color: #d6d1d1;
-    }
-    img {
-      width: 90%;
-      aspect-ratio: 0.86;
-    }
-  }
+section.hero,
+section.villain {
+  padding: var(--space-xs);
 }
 section.hero {
   color: black;
   border: 1px double var(--superBlue);
-  padding: 15px;
   background: linear-gradient(45deg, #d2e6f8, transparent);
   box-shadow: 1px 1px 4px 4px #8080804d;
+
+  h2 {
+    text-shadow: 1px 0px #3f51b5;
+  }
 }
 
 section.villain {
@@ -172,15 +119,15 @@ button[type="submit"] {
 }
 
 h1 {
-  font-size: var(--step-4);
-}
-
-h2 {
   font-size: var(--step-2);
 }
 
-p {
+h2 {
   font-size: var(--step-1);
+}
+
+p {
+  font-size: var(--step-0);
 }
 
 header.flex,
@@ -188,6 +135,7 @@ div.flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex: 1;
 }
 
 section.villain > header > div:nth-child(1) {
@@ -198,7 +146,7 @@ div.contact-grid {
   display: grid;
   grid-template-columns: max-content var(--space-s);
   grid-template-rows: auto;
-  font-size: var(--step-1);
+  font-size: var(--step--1);
   gap: 5px;
   margin: 10px;
 
@@ -206,23 +154,25 @@ div.contact-grid {
   justify-items: flex-end;
   justify-content: center;
   align-content: space-around;
+
   img {
     width: 100%;
     align-self: center;
     justify-self: center;
-  }
-  > img:nth-child(4) {
-    position: relative;
-    left: 8%;
   }
 
   p {
     font-size: var(--step--2);
   }
 }
+.hero div.contact-grid img:nth-child(4) {
+  position: relative;
+  left: 8%;
+}
 
 #root {
   width: 100vw;
+  padding: var(--space-m);
 }
 
 a.attribution {
@@ -241,15 +191,6 @@ a.attribution {
   font-family: "foldit";
 }
 
-.flex-expand {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: stretch;
-
-  button {
-    flex: 1;
-  }
-}
 section.villain a {
   color: var(--villainViolet);
   text-shadow: 1px 0px white;
@@ -257,9 +198,9 @@ section.villain a {
 }
 section.hero a {
   color: var(--superBlue);
-  text-shadow: 1px 0px #b2bbea;
-  font-size: var(--step-0);
-  letter-spacing: 1px;
+  text-shadow: 1px 0px #ffffff;
+  font-size: var(--step--2);
+  letter-spacing: 0.5px;
   font-weight: 700;
 }
 

@@ -1,0 +1,46 @@
+section.hero > header > div:nth-child(1),
+section.villain > header > div:nth-child(1) {
+  text-align: center;
+
+  h2 {
+    flex: 1;
+    letter-spacing: 0.7px;
+  }
+  img {
+    width: 20%;
+    flex: 1;
+  }
+}
+
+div.contact-grid {
+  flex-grow: 0;
+}
+div.contact-grid > img {
+  width: var(--space-s);
+}
+
+.data-form {
+  display: grid;
+  max-width: fit-content;
+  gap: 5px;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: var(--space-s);
+  border: 2px double black;
+
+  label {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: 5px;
+    grid-template-rows: 1fr;
+    grid-template-columns: subgrid;
+
+    input {
+      padding: 1px;
+    }
+  }
+}
+
+section.hero .flex > div:nth-child(1) {
+  width: clamp(100px, 40%, 50%);
+}

@@ -1,12 +1,13 @@
-import heroEmailIcon from "./assets/email.svg";
-import heroPhoneIcon from "./assets/phone-booth.svg";
-import villainEmailIcon from "./assets/villain-email.svg";
-import villainPhoneIcon from "./assets/villain-phone.svg";
-import leftCurveLine from "./assets/left-curve.svg";
-import rightCurveLine from "./assets/right-curve.svg";
+import "../styles/header.css";
+import heroEmailIcon from "../assets/email.svg";
+import heroPhoneIcon from "../assets/phone-booth.svg";
+import villainEmailIcon from "../assets/villain-email.svg";
+import villainPhoneIcon from "../assets/villain-phone.svg";
+import leftCurveLine from "../assets/left-curve.svg";
+import rightCurveLine from "../assets/right-curve.svg";
 
-import leftVillainLine from "./assets/villain-left-line.svg";
-import rightVillainLine from "./assets/villain-right-line.svg";
+import leftVillainLine from "../assets/villain-left-line.svg";
+import rightVillainLine from "../assets/villain-right-line.svg";
 
 function ResumeHeader({ data, isHero, charType }) {
   console.log(data);

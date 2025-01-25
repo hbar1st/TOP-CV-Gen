@@ -1,4 +1,4 @@
-import "./App.css";
+import "../styles/App.css";
 import Landing from "./Landing.jsx";
 import ResumeHeader from "./ResumeHeader.jsx";
 import HeaderData from "./HeaderData.jsx";
@@ -36,18 +36,22 @@ function App() {
             isHero={isHero}
             setters={{ setName, setEmail, setPhone }}
           />
+
+          <div className="nav-buttons">
+            <button
+              type="button"
+              onClick={() => setSplashToggle(!splashToggle)}
+            >
+              Previous
+            </button>
+            <button type="button">Next</button>
+          </div>
           <ResumeHeader
             data={data}
             isHero={isHero}
             charType={isHero ? "Hero" : "Villain"}
           />
         </section>
-        <div className="flex-expand">
-          <button type="button" onClick={() => setSplashToggle(!splashToggle)}>
-            Previous
-          </button>
-          <button type="button">Next</button>
-        </div>
       </>
     );
   }

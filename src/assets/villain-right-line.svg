@@ -11,6 +11,7 @@
    sodipodi:docname="villain-right-line.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -24,16 +25,32 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="6.186083"
-     inkscape:cx="17.862676"
+     inkscape:cx="17.862677"
      inkscape:cy="36.856925"
      inkscape:window-width="1920"
      inkscape:window-height="1112"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g20" />
   <defs
      id="defs1">
+    <linearGradient
+       id="linearGradient1"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#9a65a2;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+      <stop
+         style="stop-color:#690991;stop-opacity:0.78431374;"
+         offset="0.56799996"
+         id="stop3" />
+      <stop
+         style="stop-color:#b781fb;stop-opacity:0.59875262;"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
     <inkscape:path-effect
        effect="spiro"
        id="path-effect19"
@@ -165,6 +182,39 @@
        id="path-effect4"
        is_visible="true"
        lpeversion="1" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="radialGradient2"
+       cx="9.5188731"
+       cy="2.2358355"
+       fx="9.5188731"
+       fy="2.2358355"
+       r="9.0086403"
+       gradientTransform="matrix(1,0,0,0.18452277,0,1.8232729)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="radialGradient3"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4708598,0.02992819,0.00132191,0.18164163,-3.196591,1.3514795)"
+       cx="9.5188731"
+       cy="2.2358355"
+       fx="9.5188731"
+       fy="2.2358355"
+       r="9.0086403" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="radialGradient3-8"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4708598,-0.02992819,0.00132191,-0.18164163,-3.1628605,3.129523)"
+       cx="9.5188732"
+       cy="2.2358356"
+       fx="9.5188732"
+       fy="2.2358356"
+       r="9.0086403" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -172,25 +222,26 @@
      id="layer1">
     <g
        id="g20"
-       transform="matrix(-1,0,0,1,19.037746,0)">
+       transform="matrix(-1,0,0,1,19.037746,0)"
+       style="stroke-width:0.37741096;stroke-dasharray:none;stroke:url(#radialGradient2)">
       <path
-         style="fill:none;stroke:#8337ab;stroke-width:0.20589px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:url(#radialGradient2);stroke-width:0.37741096;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
          d="M 18.471939,2.1300975 6.889534,0.76550379"
          id="path19" />
       <path
-         style="fill:none;stroke:#8337ab;stroke-width:0.20589px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="M 14.452943,2.1255391 2.8705385,0.76094544"
-         id="path19-8" />
-      <path
-         style="fill:none;stroke:#8337ab;stroke-width:0.20589px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:url(#radialGradient2);stroke-width:0.37741096;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
          d="M 18.467772,2.3105331 6.8853674,3.6751268"
          id="path19-9" />
       <path
-         style="fill:none;stroke:#8337ab;stroke-width:0.20589px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="M 14.399519,2.3461318 2.8171142,3.7107255"
+         style="fill:none;stroke:url(#radialGradient3);stroke-width:0.454099;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 17.986825,2.297126 0.96051048,3.2937725"
          id="path19-9-3" />
       <path
-         style="fill:none;stroke:#8337ab;stroke-width:0.361848;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:none;stroke:url(#radialGradient3-8);stroke-width:0.454099;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 18.020556,2.1838765 0.99424152,1.18723"
+         id="path19-9-3-8" />
+      <path
+         style="fill:none;stroke:url(#radialGradient2);stroke-width:0.53304435;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
          d="M 18.338808,2.2632287 0.69893825,2.2299457"
          id="path20" />
     </g>

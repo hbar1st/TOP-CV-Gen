@@ -1,5 +1,5 @@
-import clark from "./assets/clark.jpeg";
-import lex from "./assets/luthor.jpeg";
+import clark from "../assets/clark.jpeg";
+import lex from "../assets/luthor.jpeg";
 
 function Landing({ isHero, onSelect }) {
   return (

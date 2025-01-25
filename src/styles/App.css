@@ -1,0 +1,86 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+fieldset.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  gap: var(--space-xs);
+  margin: var(--space-s);
+
+  input[type="radio"] {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    transition: all 0.3s ease-out;
+  }
+
+  label {
+    font-weight: 700;
+    font-family: "emblemaone";
+  }
+  label:hover {
+    box-shadow: 1px 1px 1px 1px gray;
+  }
+
+  label:has(> input[type="radio"]:checked) {
+    font-weight: 600;
+    color: white;
+  }
+  label.hero:has(> input[type="radio"]:checked) {
+    background-color: var(--superBlue, blue);
+  }
+  label.villain:has(> input[type="radio"]:checked) {
+    /*background-color: rgb(65, 38, 84);*/
+    background-color: #3d3250;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    max-width: 90vw;
+    gap: var(--space-xs);
+
+    label {
+      max-width: 50%;
+      padding: var(--space-xs);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 5px;
+      background-color: #d6d1d1;
+      font-size: var(--step--1);
+    }
+    img {
+      width: 90%;
+      aspect-ratio: 0.86;
+    }
+  }
+}
+
+.resume {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  align-items: center;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: clamp(200px, 50%, 500px);
+
+  button {
+    flex: 1;
+    width: 50%;
+    margin: 5px;
+  }
+}
