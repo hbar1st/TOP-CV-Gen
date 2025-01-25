@@ -84,3 +84,7 @@ fieldset.landing {
     margin: 5px;
   }
 }
+
+form > header > h1 {
+  text-align: center;
+}
