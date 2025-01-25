@@ -1,17 +1,21 @@
 import "./App.css";
 import Landing from "./Landing.jsx";
 import ResumeHeader from "./ResumeHeader.jsx";
+import HeaderData from "./HeaderData.jsx";
 import { useState } from "react";
 
 function App() {
   const [isHero, setHero] = useState(true); //you're either a Hero or you're a zero!
   const [splashToggle, setSplashToggle] = useState(true);
+  const [name, setName] = useState("Alias");
+  const [email, setEmail] = useState("alias@fictional.com");
+  const [phone, setPhone] = useState("555-555-5555");
 
   if (splashToggle) {
     return (
       <>
         <form
-          onSubmit={(e) => {
+          onSubmit={() => {
             setSplashToggle(false);
           }}
           action=""
@@ -23,9 +27,27 @@ function App() {
       </>
     );
   } else {
+    let data = { name, email, phone };
     return (
       <>
-        <ResumeHeader charType={isHero ? "Hero" : "Villain"} />
+        <section className="resume">
+          <HeaderData
+            data={data}
+            isHero={isHero}
+            setters={{ setName, setEmail, setPhone }}
+          />
+          <ResumeHeader
+            data={data}
+            isHero={isHero}
+            charType={isHero ? "Hero" : "Villain"}
+          />
+        </section>
+        <div className="flex-expand">
+          <button type="button" onClick={() => setSplashToggle(!splashToggle)}>
+            Previous
+          </button>
+          <button type="button">Next</button>
+        </div>
       </>
     );
   }
