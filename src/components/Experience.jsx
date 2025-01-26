@@ -62,7 +62,37 @@ function Experience({
     console.log("count after add: ", experienceCount.current);
     updateExperienceList(newArr);
   }
-  const list = experienceList.map((experience) => {
+
+  function moveUpTheList(key) {
+    let newArr = [];
+
+    for (let i = 0; i < experienceList.length; i++) {
+      if (experienceList[i].key === key) {
+        const prevObj = newArr.pop();
+        newArr.push(experienceList[i]);
+        newArr.push(prevObj);
+      } else {
+        newArr.push(experienceList[i]);
+      }
+    }
+    updateExperienceList(newArr);
+  }
+
+  function moveDownTheList(key) {
+    let newArr = [];
+
+    for (let i = 0; i < experienceList.length; i++) {
+      if (experienceList[i].key === key) {
+        newArr.push(experienceList[i + 1]);
+        newArr.push(experienceList[i]);
+        i++;
+      } else {
+        newArr.push(experienceList[i]);
+      }
+    }
+    updateExperienceList(newArr);
+  }
+  const list = experienceList.map((experience, index) => {
     console.log("re-render with experience.key: ", experience.key);
     return (
       <section className="experience" key={experience.key}>
@@ -73,12 +103,24 @@ function Experience({
         >
           <img src={deleteIcon} alt="delete" />
         </button>
-        <button type="button" id="moveUpIcon">
-          <img src={moveUpIcon} alt="move up" />
-        </button>
-        <button type="button" id="moveDownIcon">
-          <img src={moveDownIcon} alt="move down" />
-        </button>
+        {index > 0 && (
+          <button
+            onClick={() => moveUpTheList(experience.key)}
+            type="button"
+            id="moveUpIcon"
+          >
+            <img src={moveUpIcon} alt="move up" />
+          </button>
+        )}
+        {index < experienceList.length - 1 && (
+          <button
+            onClick={() => moveDownTheList(experience.key)}
+            type="button"
+            id="moveDownIcon"
+          >
+            <img src={moveDownIcon} alt="move down" />
+          </button>
+        )}
         <fieldset>
           <legend>Job Details</legend>
 
