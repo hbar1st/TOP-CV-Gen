@@ -115,6 +115,8 @@ function App() {
   } else if (wizardIndex === 2) {
     return (
       <>
+        <NavButtons moveBack={moveBack} moveForward={moveForward} />
+
         <Experience
           experienceList={experienceList}
           isHero={isHero}

@@ -25,7 +25,7 @@ function Experience({
       console.log(newArr[i].key);
       if (newArr[i].key === +key) {
         const newObj = {
-          ...newArr[+key],
+          ...newArr[i],
           default: false, //always set to false if any change is made
           [id]: value,
         };
@@ -63,6 +63,7 @@ function Experience({
     updateExperienceList(newArr);
   }
   const list = experienceList.map((experience) => {
+    console.log("re-render with experience.key: ", experience.key);
     return (
       <section className="experience" key={experience.key}>
         <button

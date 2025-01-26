@@ -2,6 +2,7 @@ import "../styles/Header.css";
 
 function ExperienceSection({ experienceList, isHero, charType }) {
   const list = experienceList.map((experience) => {
+    console.log("experience.key : ", experience.key);
     return (
       <section key={experience.key}>
         {experience.startDate} - {experience.endDate}
