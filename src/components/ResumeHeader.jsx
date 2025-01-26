@@ -1,4 +1,4 @@
-import "../styles/header.css";
+import "../styles/Header.css";
 import heroEmailIcon from "../assets/email.svg";
 import heroPhoneIcon from "../assets/phone-booth.svg";
 import villainEmailIcon from "../assets/villain-email.svg";
@@ -10,7 +10,6 @@ import leftVillainLine from "../assets/villain-left-line.svg";
 import rightVillainLine from "../assets/villain-right-line.svg";
 
 function ResumeHeader({ data, isHero, charType }) {
-  console.log(data);
   return (
     <section className={charType.toLowerCase()}>
       <header className="flex">

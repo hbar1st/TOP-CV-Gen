@@ -73,6 +73,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
+  font-family: "arvo";
+  font-size: var(--step--1);
 }
 
 body {
@@ -206,4 +209,8 @@ section.hero a {
 
 section a {
   font-family: "Courier New", Courier, monospace;
+}
+
+input {
+  padding: 1px;
 }

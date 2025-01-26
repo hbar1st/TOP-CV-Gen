@@ -1,10 +1,168 @@
-function Experience({ experience, isHero, updateExperience }) {
+import "../styles/Experience.css";
+import deleteIcon from "../assets/delete.svg";
+import moveUpIcon from "../assets/move-up.svg";
+import moveDownIcon from "../assets/move-down.svg";
+import addIcon from "../assets/add.svg";
+
+function Experience({
+  experienceList,
+  isHero,
+  updateExperienceList,
+  experienceCount,
+}) {
+  console.log(experienceList);
+
+  function updateExperience(e) {
+    const key = e.target.getAttribute("data-key");
+    const value = e.target.value;
+    const id = e.target.id;
+
+    console.log("try to update: ", experienceList[+key]);
+
+    const newArr = [...experienceList];
+    console.log(newArr);
+    for (let i = 0; i < newArr.length; i++) {
+      console.log(newArr[i].key);
+      if (newArr[i].key === +key) {
+        const newObj = {
+          ...newArr[+key],
+          default: false, //always set to false if any change is made
+          [id]: value,
+        };
+        console.log("new object: ", newObj);
+        newArr[i] = newObj; //targetted update, leaving the array untouched otherwise
+      }
+    }
+    console.log("new array should be : ", newArr);
+    updateExperienceList(newArr);
+  }
+
+  function delExperience(key) {
+    const newArr = experienceList.filter((obj) => obj.key !== key);
+    updateExperienceList(newArr);
+  }
+
+  function addExperience() {
+    console.log("count: ", experienceCount.current);
+    const newArr = [
+      {
+        key: experienceCount.current,
+        title: "",
+        location: "",
+        startDate: "",
+        endDate: "",
+        employer: "",
+        desc: "",
+        responsibilities: "",
+      },
+      ...experienceList,
+    ];
+    experienceCount.current += 1;
+    console.log("new Arr after add: ", newArr);
+    console.log("count after add: ", experienceCount.current);
+    updateExperienceList(newArr);
+  }
+  const list = experienceList.map((experience) => {
+    return (
+      <section className="experience" key={experience.key}>
+        <button
+          onClick={() => delExperience(experience.key)}
+          type="button"
+          id="deleteIcon"
+        >
+          <img src={deleteIcon} alt="delete" />
+        </button>
+        <button type="button" id="moveUpIcon">
+          <img src={moveUpIcon} alt="move up" />
+        </button>
+        <button type="button" id="moveDownIcon">
+          <img src={moveDownIcon} alt="move down" />
+        </button>
+        <fieldset>
+          <legend>Job Details</legend>
+
+          <label htmlFor="title">
+            Title:
+            <input
+              name="title"
+              type="text"
+              id="title"
+              value={experience.title}
+              data-key={experience.key}
+              onChange={updateExperience}
+            />
+          </label>
+          <label htmlFor="desc">
+            Description:
+            <input
+              name="desc"
+              type="text"
+              size="25"
+              id="desc"
+              value={experience.desc}
+              data-key={experience.key}
+              onChange={updateExperience}
+            />
+          </label>
+          <label htmlFor="employer">
+            Employer:
+            <input
+              name="employer"
+              type="text"
+              id="employer"
+              value={experience.employer}
+              data-key={experience.key}
+              onChange={updateExperience}
+            />
+          </label>
+          <label htmlFor="location">
+            Location:
+            <input
+              name="location"
+              type="text"
+              id="location"
+              value={experience.location}
+              data-key={experience.key}
+              onChange={updateExperience}
+            />
+          </label>
+          <label htmlFor="startDate">
+            Start Date:
+            <input
+              name="startDate"
+              type="date"
+              id="startDate"
+              value={experience.startDate}
+              data-key={experience.key}
+              onChange={updateExperience}
+            />
+          </label>
+          <label htmlFor="endDate">
+            End Date:
+            <input
+              name="endDate"
+              type="date"
+              id="endDate"
+              value={experience.endDate}
+              data-key={experience.key}
+              onChange={updateExperience}
+            />
+          </label>
+          <textarea name="" id=""></textarea>
+        </fieldset>
+      </section>
+    );
+  });
   return (
     <section>
-      <form className="data-form">
-        <label htmlFor="experience">
-          {isHero ? "Life Saving Experience:" : "Evil Deeds:"}
-        </label>
+      <h2>Professional Experience:</h2>
+      <form>
+        <button onClick={addExperience} id="add-icon" type="button" name="Add">
+          {" "}
+          Add
+          <img src={addIcon} alt="add experience" />
+        </button>
+        {list}
       </form>
     </section>
   );

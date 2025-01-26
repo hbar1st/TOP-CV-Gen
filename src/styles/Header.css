@@ -34,10 +34,6 @@ div.contact-grid > img {
     gap: 5px;
     grid-template-rows: 1fr;
     grid-template-columns: subgrid;
-
-    input {
-      padding: 1px;
-    }
   }
 }
 
