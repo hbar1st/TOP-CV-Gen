@@ -16,7 +16,7 @@ function ExperienceSection({ experienceList, isHero, charType, isFinale }) {
             <p>
               {experience.startDate}
               {` - `}
-              {experience.endDataCurrent ? "Current" : experience.endDate}
+              {experience.endDateCurrent ? "Current" : experience.endDate}
             </p>
             <span></span>
             <p>{experience.title}</p>

@@ -14,7 +14,7 @@ function Experience({
 
   function updateExperience(e) {
     const key = e.target.getAttribute("data-key");
-    const value = e.target.value;
+    const value = e.target.checked ?? e.target.value;
     const id = e.target.id;
 
     console.log("try to update: ", experienceList[+key]);
@@ -202,6 +202,7 @@ function Experience({
             <input
               type="checkbox"
               checked={experience.endDateCurrent}
+              value={experience.endDateCurrent}
               data-key={experience.key}
               onChange={updateExperience}
               name="endDateCurrent"
