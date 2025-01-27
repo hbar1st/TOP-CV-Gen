@@ -5,6 +5,8 @@ import ResumeHeader from "./ResumeHeader.jsx";
 import HeaderData from "./HeaderData.jsx";
 import Experience from "./Experience.jsx";
 import ExperienceSection from "./ExperienceSection.jsx";
+import Education from "./Education.jsx";
+import EducationSection from "./EducationSection.jsx";
 import { useState, useRef } from "react";
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
     employer: "Daily Planet",
     location: "Metropolis",
     startDate: "1950-05-05",
+    endDateCurrent: false,
     endDate: today,
     responsibilities: [
       "Pulitzer Prize for writing: 'Under a Yellow Sun'",
@@ -37,6 +40,7 @@ function App() {
     employer: "LexCorp",
     location: "Metropolis",
     startDate: "1986-02-01",
+    endDateCurrent: false,
     endDate: today,
     responsibilities: [
       "Overseeing a vast, multinational conglomerate with diverse business interests including technology, energy, and telecommunications.",
@@ -54,6 +58,10 @@ function App() {
     isHero ? heroPlaceHolder : villainPlaceHolder,
   ]);
   const experienceCount = useRef(1);
+  const [educationList, setEducationList] = useState([
+    { key: 0, school: "", study: "", date: "" },
+  ]);
+  const educationCount = useRef(1);
 
   function moveForward() {
     setWizardIndex(wizardIndex + 1);
@@ -130,6 +138,54 @@ function App() {
           isHero={isHero}
           charType={isHero ? "Hero" : "Villain"}
         />
+      </>
+    );
+  } else if (wizardIndex === 3) {
+    return (
+      <>
+        <NavButtons moveBack={moveBack} moveForward={moveForward} />
+
+        <Education
+          educationList={educationList}
+          isHero={isHero}
+          updateEducationList={setEducationList}
+          educationCount={educationCount}
+        />
+
+        <NavButtons moveBack={moveBack} moveForward={moveForward} />
+        <EducationSection
+          educationList={educationList}
+          isHero={isHero}
+          charType={isHero ? "Hero" : "Villain"}
+        />
+      </>
+    );
+  } else if (wizardIndex === 4) {
+    let data = { name, email, phone };
+    return (
+      <>
+        <NavButtons moveBack={moveBack} />
+        <ResumeHeader
+          data={data}
+          isHero={isHero}
+          charType={isHero ? "Hero" : "Villain"}
+          isFinale={true}
+        />
+        <ExperienceSection
+          experienceList={experienceList}
+          isHero={isHero}
+          charType={isHero ? "Hero" : "Villain"}
+          isFinale={true}
+        />
+
+        <EducationSection
+          educationList={educationList}
+          isHero={isHero}
+          charType={isHero ? "Hero" : "Villain"}
+          isFinale={true}
+        />
+
+        <NavButtons moveBack={moveBack} />
       </>
     );
   }

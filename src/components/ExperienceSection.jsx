@@ -1,21 +1,42 @@
 import "../styles/Header.css";
 
-function ExperienceSection({ experienceList, isHero, charType }) {
+function ExperienceSection({ experienceList, isHero, charType, isFinale }) {
+  let classNames = "";
+  if (isFinale) {
+    classNames += "finale ";
+  }
+  classNames += charType.toLowerCase();
+
   const list = experienceList.map((experience) => {
     console.log("experience.key : ", experience.key);
     return (
       <section key={experience.key}>
-        {experience.startDate} - {experience.endDate}
-        {experience.title}
-        {experience.desc}
-        {experience.location}
-        {experience.employer}
+        <div className="experience-section">
+          <div className="top-align">
+            <p>
+              {experience.startDate}
+              {` - `}
+              {experience.endDataCurrent ? "Current" : experience.endDate}
+            </p>
+            <span></span>
+            <p>{experience.title}</p>
+          </div>
+          <div className="left-and-right">
+            <div className="left-align">
+              <p>{experience.employer}</p>
+              <p>{experience.location}</p>
+            </div>
+            <div className="right-align">
+              <p>{experience.desc}</p>
+            </div>
+          </div>
+        </div>
       </section>
     );
   });
 
   return (
-    <section className={charType.toLowerCase()}>
+    <section className={classNames}>
       <h2>
         <span>Experience</span>
       </h2>

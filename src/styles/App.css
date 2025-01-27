@@ -71,11 +71,16 @@ fieldset.landing {
 }
 
 .nav-buttons {
-  margin: auto;
+  margin: 10px auto;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: clamp(200px, 50%, 500px);
+  background-color: rgba(221, 214, 200, 0.836);
+  width: clamp(50%, 50vw, 100%);
+  padding: 0px 5px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, var(--superBlue), #9d8080d6, #111416);
 
   button {
     flex: 1;

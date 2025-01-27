@@ -9,9 +9,15 @@ import rightCurveLine from "../assets/right-curve.svg";
 import leftVillainLine from "../assets/villain-left-line.svg";
 import rightVillainLine from "../assets/villain-right-line.svg";
 
-function ResumeHeader({ data, isHero, charType }) {
+function ResumeHeader({ data, isHero, charType, isFinale }) {
+  let classNames = "";
+  if (isFinale) {
+    classNames += "finale ";
+  }
+  classNames += charType.toLowerCase();
+
   return (
-    <section className={charType.toLowerCase()}>
+    <section className={classNames}>
       <header className="flex">
         <div>
           <h1>{data.name}</h1>

@@ -92,6 +92,23 @@ function Experience({
     }
     updateExperienceList(newArr);
   }
+
+  function endDateSelector(experience) {
+    return (
+      <label htmlFor="endDate" className="disabled">
+        End Date:
+        <input
+          name="endDate"
+          type="date"
+          id="endDate"
+          value={experience.endDate}
+          data-key={experience.key}
+          onChange={updateExperience}
+          disabled={experience.endDateCurrent}
+        />
+      </label>
+    );
+  }
   const list = experienceList.map((experience, index) => {
     console.log("re-render with experience.key: ", experience.key);
     return (
@@ -180,18 +197,19 @@ function Experience({
               onChange={updateExperience}
             />
           </label>
-          <label htmlFor="endDate">
-            End Date:
+          <label htmlFor="endDateCurrent">
+            End Date Current?
             <input
-              name="endDate"
-              type="date"
-              id="endDate"
-              value={experience.endDate}
+              type="checkbox"
+              checked={experience.endDateCurrent}
               data-key={experience.key}
               onChange={updateExperience}
+              name="endDateCurrent"
+              id="endDateCurrent"
             />
           </label>
-          <textarea name="" id=""></textarea>
+          {endDateSelector(experience)}
+          <textarea name="details" id="details"></textarea>
         </fieldset>
       </section>
     );
@@ -201,7 +219,6 @@ function Experience({
       <h2>Professional Experience:</h2>
       <form>
         <button onClick={addExperience} id="add-icon" type="button" name="Add">
-          {" "}
           Add
           <img src={addIcon} alt="add experience" />
         </button>

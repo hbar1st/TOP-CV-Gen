@@ -214,3 +214,14 @@ section a {
 input {
   padding: 1px;
 }
+
+section.finale {
+  box-shadow: none !important;
+}
+
+section.finale:nth-child(1) {
+  border-bottom: none;
+}
+section.finale:nth-child(2) {
+  border-bottom: none;
+}

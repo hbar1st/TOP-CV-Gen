@@ -5,6 +5,41 @@
   grid-template-rows: 30px 30px 30px auto;
 }
 
+.experience-section {
+  cursor: none;
+  width: 100%;
+  margin-left: 4px;
+  padding: 2px 5px;
+
+  .top-align > p:nth-child(1) {
+    font-weight: 800;
+  }
+  * {
+    font-size: var(--step--2);
+  }
+  .left-and-right {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
+  }
+  .top-align {
+    display: flex;
+    justify-content: flex-start;
+    span {
+      flex: 1;
+      border-bottom: 1px dotted gray;
+      position: relative;
+      top: calc(var(--step--2) / -2);
+    }
+  }
+
+  .left-align,
+  .right-align {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 fieldset {
   grid-row: 1 / -1;
   grid-column: 1;
@@ -64,4 +99,9 @@ form {
 
 textarea {
   resize: none;
+  grid-column: 1 / -1;
+}
+
+input:disabled {
+  color: gray;
 }
