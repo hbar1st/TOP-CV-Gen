@@ -17,8 +17,6 @@ function Education({
     const value = e.target.value;
     const id = e.target.id;
 
-    console.log("try to update: ", educationList[+key]);
-
     const newArr = [...educationList];
     console.log(newArr);
     for (let i = 0; i < newArr.length; i++) {
@@ -47,6 +45,9 @@ function Education({
     const newArr = [
       {
         key: educationCount.current,
+        school: "",
+        study: "",
+        date: "",
       },
       ...educationList,
     ];
@@ -143,9 +144,9 @@ function Education({
           <label htmlFor="employer">
             Date Completed:
             <input
-              name="startDate"
+              name="date"
               type="date"
-              id="startDate"
+              id="date"
               value={education.date}
               data-key={education.key}
               onChange={updateEducation}

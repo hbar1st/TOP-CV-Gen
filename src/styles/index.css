@@ -87,6 +87,7 @@ body {
 section.hero,
 section.villain {
   padding: var(--space-xs);
+  width: clamp(50%, 800px, 100%);
 }
 section.hero {
   color: black;
@@ -216,12 +217,16 @@ input {
 }
 
 section.finale {
-  box-shadow: none !important;
+  box-shadow: none;
+  border: none;
+  background: none;
 }
 
-section.finale:nth-child(1) {
-  border-bottom: none;
+div.finale.hero {
+  background: linear-gradient(45deg, #d2e6f8, transparent);
 }
-section.finale:nth-child(2) {
-  border-bottom: none;
+
+
+div.finale.villain {
+  background: linear-gradient(45deg, #3d3250, #111416);
 }

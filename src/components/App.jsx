@@ -141,6 +141,7 @@ function App() {
       </>
     );
   } else if (wizardIndex === 3) {
+    console.log("My initial education list: " + educationList);
     return (
       <>
         <NavButtons moveBack={moveBack} moveForward={moveForward} />
@@ -161,30 +162,34 @@ function App() {
       </>
     );
   } else if (wizardIndex === 4) {
-    let data = { name, email, phone };
+    const data = { name, email, phone };
+    const charType = isHero ? "hero" : "villain";
+    const classes = `finale ${charType}`;
     return (
       <>
         <NavButtons moveBack={moveBack} />
-        <ResumeHeader
-          data={data}
-          isHero={isHero}
-          charType={isHero ? "Hero" : "Villain"}
-          isFinale={true}
-        />
-        <ExperienceSection
-          experienceList={experienceList}
-          isHero={isHero}
-          charType={isHero ? "Hero" : "Villain"}
-          isFinale={true}
-        />
 
-        <EducationSection
-          educationList={educationList}
-          isHero={isHero}
-          charType={isHero ? "Hero" : "Villain"}
-          isFinale={true}
-        />
+        <div className={classes}>
+          <ResumeHeader
+            data={data}
+            isHero={isHero}
+            charType={isHero ? "Hero" : "Villain"}
+            isFinale={true}
+          />
+          <ExperienceSection
+            experienceList={experienceList}
+            isHero={isHero}
+            charType={isHero ? "Hero" : "Villain"}
+            isFinale={true}
+          />
 
+          <EducationSection
+            educationList={educationList}
+            isHero={isHero}
+            charType={isHero ? "Hero" : "Villain"}
+            isFinale={true}
+          />
+        </div>
         <NavButtons moveBack={moveBack} />
       </>
     );

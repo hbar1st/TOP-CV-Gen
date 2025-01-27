@@ -50,6 +50,7 @@ function Experience({
         title: "",
         location: "",
         startDate: "",
+        endDateCurrent: false,
         endDate: "",
         employer: "",
         desc: "",

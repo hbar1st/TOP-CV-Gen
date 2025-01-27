@@ -5,9 +5,17 @@ function EducationSection({ educationList, isHero, charType, isFinale }) {
     console.log("education.key : ", education.key);
     return (
       <section key={education.key}>
-        {education.school}
-        {education.study}
-        {education.date}
+        <div className="education-section">
+          <div className="top-align">
+            <p>{education.date}</p>
+            <span></span>
+            <p>{education.study}</p>
+          </div>
+          <div className="left-and-right">
+            <div className="left-align"></div>
+            <div className="right-align">{education.school}</div>
+          </div>
+        </div>
       </section>
     );
   });
