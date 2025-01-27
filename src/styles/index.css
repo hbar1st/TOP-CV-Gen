@@ -21,9 +21,6 @@
   font-style: italic;
 }
 
-/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-/* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-
 :root {
   --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
   --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
@@ -233,4 +230,10 @@ div.finale.hero {
 
 div.finale.villain {
   background: linear-gradient(45deg, #3d3250, #111416);
+}
+
+li {
+  list-style-type: "- ";
+  margin-left: 10px;
+  margin-top: 3px;
 }

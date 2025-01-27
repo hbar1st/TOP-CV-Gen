@@ -6,12 +6,17 @@
   grid-template-rows: 30px 30px 30px auto;
 }
 
-.experience-section,
 .education-section {
   width: 100%;
   margin-left: 4px;
   padding: 2px 5px;
+}
 
+.education-section,
+.experience-section {
+  width: 100%;
+  margin: 5px auto;
+  line-height: 1.5;
   .top-align > p:nth-child(1) {
     font-weight: 800;
   }

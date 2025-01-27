@@ -186,7 +186,11 @@ function Experience({
               delJobResp(e, experience.key);
             }}
           >
-            <img src={delRespIcon} alt="delete a job responsibility" />
+            <img
+              data-key={key}
+              src={delRespIcon}
+              alt="delete a job responsibility"
+            />
           </button>
           <textarea
             data-key={key}

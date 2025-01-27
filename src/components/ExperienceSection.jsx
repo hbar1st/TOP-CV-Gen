@@ -9,8 +9,14 @@ function ExperienceSection({ experienceList, isHero, charType, isFinale }) {
 
   const list = experienceList.map((experience) => {
     console.log("experience.key : ", experience.key);
+
+    const respList = experience.responsibilities.map((resp) => {
+      const key = Object.keys(resp)[0];
+
+      return <li key={key}>{resp[key]}</li>;
+    });
     return (
-      <section key={experience.key}>
+      <li key={experience.key}>
         <div className="experience-section">
           <div className="top-align">
             <p>
@@ -30,8 +36,9 @@ function ExperienceSection({ experienceList, isHero, charType, isFinale }) {
               <p>{experience.desc}</p>
             </div>
           </div>
+          <ul>{respList}</ul>
         </div>
-      </section>
+      </li>
     );
   });
 
@@ -40,8 +47,7 @@ function ExperienceSection({ experienceList, isHero, charType, isFinale }) {
       <h2>
         <span>Experience</span>
       </h2>
-
-      {list}
+      <ul>{list}</ul>
     </section>
   );
 }
