@@ -8,7 +8,6 @@
 
 .experience-section,
 .education-section {
-  cursor: none;
   width: 100%;
   margin-left: 4px;
   padding: 2px 5px;
@@ -59,8 +58,7 @@ fieldset {
 
     font-size: var(--step--2);
     color: white;
-    background-color: gray;
-    cursor: none;
+    background-color: #a29398;
     padding: 2px;
     position: relative;
     left: -10px;
@@ -70,6 +68,7 @@ fieldset {
 label {
   display: flex;
   flex-wrap: wrap;
+  font-weight: 600;
   gap: 5px;
 }
 
@@ -83,6 +82,7 @@ label {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  cursor: cell;
 }
 
 #deleteIcon,
@@ -95,6 +95,7 @@ label {
   align-items: center;
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 form {
@@ -106,11 +107,54 @@ form {
   }
 }
 
+.responsibility {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+}
 textarea {
-  resize: none;
-  grid-column: 1 / -1;
+  grid-column: 2;
+  width: 100%;
+  padding: 3px;
 }
 
 input:disabled {
   color: gray;
+}
+
+.resp-list {
+  grid-column: 1 / -1;
+
+  > div {
+    font-weight: 600;
+    background-color: #e0eaf8;
+    padding: 2px;
+
+    > button {
+      padding: 2px;
+      border-radius: 5px;
+      border: 1px outset black;
+      box-shadow: 2px 2px 1px 1px gray;
+    }
+
+    > button:hover {
+      box-shadow: 1px 1px 2px 2px rgb(190, 189, 189);
+    }
+  }
+  button {
+    border: 1px solid gray;
+    background-color: #e0eaf8;
+  }
+  button:hover {
+    border: 1px solid black;
+    background-color: #98b9e8;
+    cursor: cell;
+  }
+}
+
+#add-resp {
+  margin-left: 5px;
+  border: 1px double black;
+
+  margin: 2px;
 }

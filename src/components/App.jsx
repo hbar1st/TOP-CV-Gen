@@ -27,9 +27,11 @@ function App() {
     endDateCurrent: false,
     endDate: today,
     responsibilities: [
-      "Pulitzer Prize for writing: 'Under a Yellow Sun'",
-      "Easily able to deliver articles in very tight deadlines",
-      "Writing described as 'punchy' and 'snappy' by Daily Planet Editor.",
+      { 0: "Pulitzer Prize for writing: 'Under a Yellow Sun'" },
+      { 1: "Easily able to deliver articles in very tight deadlines" },
+      {
+        2: "Writing described as 'punchy' and 'snappy' by Daily Planet Editor.",
+      },
     ],
   };
   const villainPlaceHolder = {
@@ -43,9 +45,13 @@ function App() {
     endDateCurrent: false,
     endDate: today,
     responsibilities: [
-      "Overseeing a vast, multinational conglomerate with diverse business interests including technology, energy, and telecommunications.",
-      "maintains a carefully crafted public image as a successful businessman and philanthropist.",
-      "Ruthlessly pursue power by any means.",
+      {
+        0: "Overseeing a vast, multinational conglomerate with diverse business interests including technology, energy, and telecommunications.",
+      },
+      {
+        1: "Maintains a carefully crafted public image as a successful businessman and philanthropist.",
+      },
+      { 2: "Ruthlessly pursue power by any means." },
     ],
   };
 

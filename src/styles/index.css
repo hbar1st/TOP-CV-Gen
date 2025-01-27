@@ -88,6 +88,7 @@ section.hero,
 section.villain {
   padding: var(--space-xs);
   width: clamp(50%, 800px, 100%);
+  margin: auto;
 }
 section.hero {
   color: black;
@@ -222,10 +223,13 @@ section.finale {
   background: none;
 }
 
+div.finale {
+  width: clamp(50%, 800px, 100%);
+  margin: auto;
+}
 div.finale.hero {
   background: linear-gradient(45deg, #d2e6f8, transparent);
 }
-
 
 div.finale.villain {
   background: linear-gradient(45deg, #3d3250, #111416);

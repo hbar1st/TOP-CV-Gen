@@ -1,4 +1,6 @@
 import "../styles/Experience.css";
+import delRespIcon from "../assets/delResp.svg";
+import addRespIcon from "../assets/addResp.svg";
 import deleteIcon from "../assets/delete.svg";
 import moveUpIcon from "../assets/move-up.svg";
 import moveDownIcon from "../assets/move-down.svg";
@@ -12,12 +14,38 @@ function Experience({
 }) {
   console.log(experienceList);
 
+  function updateJobResp(e, jobKey) {
+    const key = e.target.getAttribute("data-key");
+    const value = e.target.value;
+
+    const newArr = [];
+    for (let i = 0; i < experienceList.length; i++) {
+      if (experienceList[i].key === +jobKey) {
+        //found the job, now find the specific responsibility within it
+        const newRespArr = [];
+        for (let j = 0; j < experienceList[i].responsibilities.length; j++) {
+          const respKey = Object.keys(experienceList[i].responsibilities[j])[0];
+          if (respKey === key) {
+            newRespArr.push({ [respKey]: value });
+          } else {
+            newRespArr.push(experienceList[i].responsibilities[j]);
+          }
+        }
+
+        const newExp = { ...experienceList[i], responsibilities: newRespArr };
+        newArr.push(newExp);
+      } else {
+        newArr.push(experienceList[i]);
+      }
+    }
+
+    console.log("new array should be : ", newArr);
+    updateExperienceList(newArr);
+  }
   function updateExperience(e, checked = undefined) {
     const key = e.target.getAttribute("data-key");
     const value = checked ?? e.target.value;
     const id = e.target.id;
-
-    console.log("try to update: ", experienceList[+key]);
 
     const newArr = [...experienceList];
     console.log(newArr);
@@ -42,11 +70,44 @@ function Experience({
     updateExperienceList(newArr);
   }
 
+  function delJobResp(e, jobKey) {
+    const respKey = e.target.getAttribute("data-key");
+    const newArr = [];
+    for (let i = 0; i < experienceList.length; i++) {
+      if (experienceList[i].key === +jobKey) {
+        const newRespArr = experienceList[i].responsibilities.filter((obj) => {
+          let keys = Object.keys(obj);
+          return keys[0] !== respKey;
+        });
+        newArr.push({ ...experienceList[i], responsibilities: newRespArr });
+      } else {
+        newArr.push(experienceList[i]);
+      }
+    }
+    updateExperienceList(newArr);
+  }
+  function addJobResp(e, jobKey) {
+    let uuid = self.crypto.randomUUID();
+    const newArr = [];
+    for (let i = 0; i < experienceList.length; i++) {
+      if (experienceList[i].key === +jobKey) {
+        const newRespArr = [
+          { [uuid]: "" },
+          ...experienceList[i].responsibilities,
+        ];
+        newArr.push({ ...experienceList[i], responsibilities: newRespArr });
+      } else {
+        newArr.push(experienceList[i]);
+      }
+    }
+    updateExperienceList(newArr);
+  }
   function addExperience() {
     console.log("count: ", experienceCount.current);
     const newArr = [
       {
         key: experienceCount.current,
+        default: false,
         title: "",
         location: "",
         startDate: "",
@@ -54,7 +115,7 @@ function Experience({
         endDate: "",
         employer: "",
         desc: "",
-        responsibilities: "",
+        responsibilities: [],
       },
       ...experienceList,
     ];
@@ -110,8 +171,33 @@ function Experience({
       </label>
     );
   }
-  const list = experienceList.map((experience, index) => {
+
+  const jobList = experienceList.map((experience, index) => {
     console.log("re-render with experience.key: ", experience.key);
+    const respList = experience.responsibilities.map((resp) => {
+      const keys = Object.keys(resp);
+      const key = keys[0];
+      return (
+        <div className="responsibility" key={key}>
+          <button
+            type="button"
+            data-key={key}
+            onClick={(e) => {
+              delJobResp(e, experience.key);
+            }}
+          >
+            <img src={delRespIcon} alt="delete a job responsibility" />
+          </button>
+          <textarea
+            data-key={key}
+            name="responsibilities"
+            id="responsibilities"
+            value={resp[key]}
+            onChange={(e) => updateJobResp(e, experience.key)}
+          ></textarea>
+        </div>
+      );
+    });
     return (
       <section className="experience" key={experience.key}>
         <button
@@ -141,7 +227,6 @@ function Experience({
         )}
         <fieldset>
           <legend>Job Details</legend>
-
           <label htmlFor="title">
             Title:
             <input
@@ -210,7 +295,22 @@ function Experience({
             />
           </label>
           {endDateSelector(experience)}
-          <textarea name="details" id="details"></textarea>
+          <div className="resp-list">
+            <div>
+              Responsibilites
+              <button
+                id="add-resp"
+                type="button"
+                onClick={(e) => {
+                  addJobResp(e, experience.key);
+                }}
+              >
+                <img src={addRespIcon} alt="add new responsibility" />
+              </button>
+            </div>
+
+            <div>{respList}</div>
+          </div>
         </fieldset>
       </section>
     );
@@ -223,7 +323,7 @@ function Experience({
           Add
           <img src={addIcon} alt="add experience" />
         </button>
-        {list}
+        {jobList}
       </form>
     </section>
   );
