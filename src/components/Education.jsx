@@ -7,7 +7,7 @@ import addIcon from "../assets/add.svg";
 function Education({
   educationList,
   isHero,
-  updateeducationList,
+  updateEducationList,
   educationCount,
 }) {
   console.log(educationList);
@@ -34,12 +34,12 @@ function Education({
       }
     }
     console.log("new array should be : ", newArr);
-    updateeducationList(newArr);
+    updateEducationList(newArr);
   }
 
   function delEducation(key) {
     const newArr = educationList.filter((obj) => obj.key !== key);
-    updateeducationList(newArr);
+    updateEducationList(newArr);
   }
 
   function addEducation() {
@@ -47,20 +47,13 @@ function Education({
     const newArr = [
       {
         key: educationCount.current,
-        title: "",
-        location: "",
-        startDate: "",
-        endDate: "",
-        employer: "",
-        desc: "",
-        responsibilities: "",
       },
       ...educationList,
     ];
     educationCount.current += 1;
     console.log("new Arr after add: ", newArr);
     console.log("count after add: ", educationCount.current);
-    updateeducationList(newArr);
+    updateEducationList(newArr);
   }
 
   function moveUpTheList(key) {
@@ -75,7 +68,7 @@ function Education({
         newArr.push(educationList[i]);
       }
     }
-    updateeducationList(newArr);
+    updateEducationList(newArr);
   }
 
   function moveDownTheList(key) {
@@ -90,7 +83,7 @@ function Education({
         newArr.push(educationList[i]);
       }
     }
-    updateeducationList(newArr);
+    updateEducationList(newArr);
   }
   const list = educationList.map((education, index) => {
     console.log("re-render with education.key: ", education.key);
